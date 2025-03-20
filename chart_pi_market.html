@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parametric Insurance Market Growth</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="margin:0; padding:0;">
+  <canvas id="marketGrowthChart"></canvas>
+  <script>
+    const ctx = document.getElementById('marketGrowthChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033'],
+        datasets: [{
+          label: 'Market Size (Billion USD)',
+          data: [18, 19.2, 20.4, 21.7, 23.1, 24.5, 26.1, 27.7, 29.3, 31.0, 32.8],
+          borderColor: '#4bc0c0',
+          backgroundColor: 'rgba(75,192,192,0.2)',
+          tension: 0.3,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: { label: ctx => `$${ctx.raw} Billion` }
+          }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
